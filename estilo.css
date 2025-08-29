@@ -1,3 +1,69 @@
-card-body1 {
-    
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Títulos */
+h1, h6 {
+    color: #333;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Footer */
+footer {
+    background-color: #e9ecef;
+    margin-top: 40px;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* Formulario de búsqueda */
+form input {
+    border-radius: 20px;
+}
+
+form button {
+    border-radius: 20px;
+}
+
+/* Botones dentro de cards */
+.btn-primary {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+/* Cards individuales centradas y espaciadas */
+.card {
+    width: 18rem;           /* Mantener tamaño fijo */
+    margin: 20px auto;      /* Centra horizontalmente y separa verticalmente */
+    border-radius: 10px;    /* Bordes suaves */
+}
+
+/* Imagen de cada card */
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Cuerpo de las cards */
+.card-body1, .card-body2, .card-body3, .card-body4 {
+    text-align: center; /* Solo centra los botones/títulos dentro de la card si lo deseas */
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.card-text {
+    color: #555;
 }
