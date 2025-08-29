@@ -1,3 +1,11 @@
+<?php
+require_once 'componentes/conexion.php';
+
+$paquetes = $conexion->query("");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
