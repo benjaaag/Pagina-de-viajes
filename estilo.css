@@ -1,15 +1,23 @@
-.card {
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* Centramos la Card 1 sola */
+.card.especial {
+  width: 300px;              /* tamaño fijo */
+  margin: 40px auto;         /* centra horizontalmente */
+  text-align: center;        /* centra el texto */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 12px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+/* Contenedor de las demás cards en fila */
+.cards {
+  display: flex;
+  justify-content: center;   /* centra las cards en horizontal */
+  gap: 20px;                 /* espacio entre cards */
+  flex-wrap: wrap;           /* permite que bajen en pantallas chicas */
 }
 
-.card img {
-  height: 180px;
-  object-fit: cover;
+.cards .card {
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
