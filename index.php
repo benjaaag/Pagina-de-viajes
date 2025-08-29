@@ -40,26 +40,26 @@ $paquetes = $conexion->query("");
             <button type="submit" class="btn btn-primary ms-2">Buscar</button>
         </form>
 
-        <div class="card mb-4" style="width: 18rem;">
+        <div class="card mb-1" style="width: 18rem;">
             <img src="https://www.educ.ar/uploads/resources/images/brazil-4803308-1280_20250305112533.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body1">
                 <h5 class="card-title">Viaje a Brasil ¡HOT SALE!</h5>
                 <p class="card-text">El mejor viaje de tu vida</p>
                 <a href="#" class="btn btn-primary">COMPRAR</a>
             </div>
         </div>
 
-        <div class="card mb-4" style="width: 18rem;">
+        <div class="card mb-2" style="width: 18rem;">
             <img src="https://s3.ivisa.com/website-assets/blog/suiza-nature-view-skies-travel.webp" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body2">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
-        <div class="card mb-4" style="width: 18rem;">
+        <div class="card mb-3" style="width: 18rem;">
             <img src="https://media.pilaradiario.com/p/0c8167954db78d5d4f39954ba7ef4f81/adjuntos/352/imagenes/100/117/0100117010/790x0/smart/india-adoptara-el-nombre-bharat-sprusoncomwebp.png" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -68,7 +68,7 @@ $paquetes = $conexion->query("");
 
         <div class="card mb-4" style="width: 18rem;">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYyIqIiL3d-iCdFqyZti-zERDNozduQQl7gQ&s" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body4">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
