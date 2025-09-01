@@ -23,6 +23,7 @@
         </button>
       </div>
     </nav>
+   
 
     <!-- Menú offcanvas -->
     <div class="container mt-4">
@@ -37,7 +38,7 @@
             <div class="card-body1">
                 <h5 class="card-title">Viaje a Brasil ¡HOT SALE!</h5>
                 <p class="card-text">El mejor viaje de tu vida</p>
-                <a href="#" class="btn btn-primary">COMPRAR</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/"target="_blank" class="btn btn-primary">COMPRAR</a>
             </div>
         </div>
 
@@ -46,7 +47,7 @@
             <div class="card-body2">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/" target="_blank" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
         <div class="card mb-3" style="width: 18rem;">
@@ -54,7 +55,7 @@
             <div class="card-body3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/"target="_blank" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -63,7 +64,7 @@
             <div class="card-body4">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/"target="_blank" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -93,8 +94,7 @@
     </div>
 
     <!-- Contenido -->
-    
-
+      <a href=""></a>
     <!-- Pie de página -->
     <footer id="pie" class="bg-light text-center py-4">
         <h5><u>Contacto: 358-788-745</u></h5>
