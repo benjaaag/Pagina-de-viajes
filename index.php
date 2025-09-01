@@ -55,7 +55,7 @@ $paquetes = $conexion->query("");
             <div class="card-body2">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="http://localhost/Pagina-de-viajes/carrito_compras/" target="_blank" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/" target="_blank" class="btn btn-primary">COMPRAR</a>
             </div>
         </div>
         <div class="card mb-3" style="width: 18rem;">
@@ -63,7 +63,7 @@ $paquetes = $conexion->query("");
             <div class="card-body3">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="http://localhost/Pagina-de-viajes/carrito_compras/"target="_blank" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/" target="_blank" class="btn btn-primary">COMPRAR</a>
             </div>
         </div>
 
@@ -72,7 +72,7 @@ $paquetes = $conexion->query("");
             <div class="card-body4">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title.</p>
-                <a href="http://localhost/Pagina-de-viajes/carrito_compras/"target="_blank" class="btn btn-primary">Go somewhere</a>
+                <a href="http://localhost/Pagina-de-viajes/carrito_compras/" target="_blank" class="btn btn-primary">COMPRAR</a>
             </div>
         </div>
 
