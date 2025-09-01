@@ -19,6 +19,14 @@ $clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; "
 </head>
 
 <body id="inicio">
+   <?php
+    foreach($clientes as $cliente){
+    echo $cliente['edad'];
+
+    }
+    ?>
+
+
   
      
     <!-- Menú -->
@@ -108,10 +116,5 @@ $clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; "
         <h5><u>Contacto: 358-788-745</u></h5>
     </footer>
 
-  <?php
-  foreach($clientes as $cliente){
-    echo $cliente['edad'];
-
-  }
-  ?>
+ 
 </body></html>
