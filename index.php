@@ -1,7 +1,7 @@
 <?php
 require_once 'componentes/conexion.php';
 
-$paquetes = $conexion->query("");
+$clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; ");
 
 ?>
 
@@ -108,6 +108,10 @@ $paquetes = $conexion->query("");
         <h5><u>Contacto: 358-788-745</u></h5>
     </footer>
 
+  <?php
+  foreach($clientes as $cliente){
+    echo $cliente['edad'];
 
-
+  }
+  ?>
 </body></html>
