@@ -23,11 +23,20 @@ $clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; "
     foreach($clientes as $cliente){
     echo $cliente['edad'];
 
+      
+
     }
     ?>
+    <div class="row row-cols-2 row-cols-md-3 g-3">
+    <?php foreach($paquetes as $paquete){?>
+      <div class="col-md-6 col-lg-4 mb-4"></div>      
+    <?php } ?>
+    </div>
 
+      
+    
 
-  
+      
      
     <!-- Menú -->
     <nav class="navbar bg-body-tertiary">
