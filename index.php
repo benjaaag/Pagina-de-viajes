@@ -1,7 +1,7 @@
 <?php
 require_once 'componentes/conexion.php';
 
-$clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; ");
+$paquetes = $conexion->query("SELECT * FROM `paquete` WHERE 1 ");
 
 ?>
 
@@ -20,8 +20,8 @@ $clientes = $conexion->query("SELECT * FROM `cliente` WHERE cliente.edad = 28; "
 
 <body id="inicio">
    <?php
-    foreach($clientes as $cliente){
-    echo $cliente['edad'];
+    foreach($paquetes as $paquete){
+    echo $paquete['nombre'];
 
     }
     ?>
