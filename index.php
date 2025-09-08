@@ -27,11 +27,13 @@ echo "CONSULTA EXITOSA";
           <div class="d-flex flex-column">
             <div class="card">
                 <div class="card-tittle">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7jz4nUXiCe1_-3QxCEua0oyRYH8npNdhGjQ&s" alt="">
                     <h3><?=$paquete['nombre']?></h3>
                 </div>
                 <div class="card-body">
                   
                   <p><?=$paquete['descripcion_corta']?></p>
+                  <p>comprar</p>
                 </div>
                 <div class="card-footer"></div>
             </div>
