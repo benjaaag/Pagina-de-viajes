@@ -1,8 +1,8 @@
 <?php
 require_once 'componentes/conexion.php';
 
-$paquetes = $conexion->query("SELECT * FROM `paquete` WHERE paquete.disponible =1");
-
+$paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;");
+echo "CONSULTA EXITOSA";
 ?>
 
 
@@ -22,7 +22,6 @@ $paquetes = $conexion->query("SELECT * FROM `paquete` WHERE paquete.disponible =
    
   
     <div class="row row-cols-2 row-cols-md-3 g-3">
-      <?=$paquetes?>
       <?php foreach($paquetes as $paquete){ ?>
         <div class="col-md 6 col-lg-4 mb-4">
           <div class="d-flex flex-column">
@@ -32,24 +31,12 @@ $paquetes = $conexion->query("SELECT * FROM `paquete` WHERE paquete.disponible =
                 </div>
                 <div class="card-body">
                   
-                  <p><?=$paquete['descripcion_corta']['descripcion_larga']?></p>
+                  <p><?=$paquete['descripcion_corta']?></p>
                 </div>
                 <div class="card-footer"></div>
             </div>
         </div>
   </div>
     <?php }?>
-    
-      
-
-    
-   
-    
-
-      
-     
-  
-
- 
 </body>
 </html>
