@@ -1,7 +1,7 @@
 <?php
 require_once 'componentes/conexion.php';
 
-$paquetes = $conexion->query("SELECT * FROM `paquete` WHERE 1 ");
+$paquetes = $conexion->query("SELECT * FROM `paquete` WHERE paquete.disponible =1");
 
 ?>
 
@@ -22,7 +22,8 @@ $paquetes = $conexion->query("SELECT * FROM `paquete` WHERE 1 ");
    
   
     <div class="row row-cols-2 row-cols-md-3 g-3">
-      <?php foreach ($paquetes as $paquete){ ?>
+      <?=$paquetes?>
+      <?php foreach($paquetes as $paquete){ ?>
         <div class="col-md 6 col-lg-4 mb-4">
           <div class="d-flex flex-column">
             <div class="card">
@@ -47,49 +48,8 @@ $paquetes = $conexion->query("SELECT * FROM `paquete` WHERE 1 ");
 
       
      
-    <!-- Menú -->
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#inicio">Agencia de viajes</a>
-    
-        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuDerecha" aria-controls="menuDerecha">
-          <span>☰</span>
-        </button>
-      </div>
-    </nav>
-   
-
-
-        <h6>Garantizá tu descanso</h6>
-    </div><div class="offcanvas offcanvas-end" tabindex="-1" id="menuDerecha" aria-labelledby="menuDerechaLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="menuDerechaLabel">Menú</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#inicio">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#pie">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Contenido -->
-      
-    <!-- Pie de página -->
-    <footer id="pie" class="bg-light text-center py-4">
-        <h5><u>Contacto: 358-788-745</u></h5>
-    </footer>
+  
 
  
-</body></html>
+</body>
+</html>
