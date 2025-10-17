@@ -19,6 +19,24 @@ echo "CONSULTA EXITOSA";
 </head>
 
 <body class="bg-light">
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+    <a class="navbar-brand text-success fw-bold" href="#">ViajesExpress</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#paquetes">Paquetes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quienes">Quiénes somos</a></li>
+        <li class="nav-item"><a class="nav-link text-success fw-bold" href="carrito.php">Carrito</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
   <div class="container py-5">
     <div class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
