@@ -22,7 +22,7 @@ echo "CONSULTA EXITOSA";
 
   <div class="container py-5">
     <div class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
-      <?php foreach($paquetes as $paquete){ ?>
+      <?php foreach($paquetes as $paquete) ?>
         <div class="col-md 6 col-lg-4 mb-4">
           <div class="d-flex flex-column">
             <div class="card">
