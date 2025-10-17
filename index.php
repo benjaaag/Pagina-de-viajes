@@ -18,25 +18,27 @@ echo "CONSULTA EXITOSA";
     
 </head>
 
-<body>
-   
-  
-    <div class="row row-cols-2 row-cols-md-3 g-3">
+<body class="bg-light">
+
+  <div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
       <?php foreach($paquetes as $paquete){ ?>
-        <div class="col-md 6 col-lg-4 mb-4">
-          <div class="d-flex flex-column">
-            <div class="card">
-                <div class="card-tittle">
-                    <h3><?=$paquete['nombre']?></h3>
-                </div>
-                <div class="card-body">
-                  
-                  <p><?=$paquete['descripcion_corta']?></p>
-                </div>
-                <div class="card-footer"></div>
+        <div class="col d-flex justify-content-center">
+          <div class="card text-center shadow-lg" style="width: 18rem;">
+            <div class="card-header">
+              <h3 class="h5 mb-0"><?=$paquete['nombre']?></h3>
             </div>
+            <div class="card-body">
+              <p class="card-text"><?=$paquete['descripcion_corta']?></p>
+            </div>
+            <div class="card-footer text-muted">
+              Más info
+            </div>
+          </div>
         </div>
+      <?php } ?>
+    </div>
   </div>
-    <?php }?>
+
 </body>
 </html>
