@@ -21,7 +21,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;"
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <div class="container">
-    <a class="navbar-brand text-success fw-bold" href="#">ViajesExpress</a>
+    <a class="navbar-brand text-success fw-bold" href="#">Pagina de viajes</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,6 +43,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;"
           <div class="d-flex flex-column">
       <?php foreach($paquetes as $paquete) { ?>
             <div class="card">
+                <img src="Equipo/opt/lampp/htdocs/Pagina-de-viajes/img/<?=$paquete['Imagen']?>" class="card-img-top" alt="<?=$paquete['nombre']?>">
                 <div class="card-tittle">
                     <h3><?=$paquete['nombre']?></h3>
                 </div>
