@@ -43,7 +43,8 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;"
           <div class="d-flex flex-column">
       <?php foreach($paquetes as $paquete) { ?>
             <div class="card">
-                <img src="Equipo/opt/lampp/htdocs/Pagina-de-viajes/img/<?=$paquete['Imagen']?>" class="card-img-top" alt="<?=$paquete['nombre']?>">
+                <img src="Imagen/<?=$paquete['Imagen']?>" class="card-img-top" alt="<?=$paquete['nombre']?>">
+
                 <div class="card-tittle">
                     <h3><?=$paquete['nombre']?></h3>
                 </div>
