@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-10-2025 a las 21:09:03
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 24-10-2025 a las 19:12:59
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `agencia_portenito`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `id_carrito` int(11) NOT NULL,
+  `estado` varchar(10) NOT NULL,
+  `total_paquetes` int(11) NOT NULL,
+  `total_precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito_paquete`
+--
+
+CREATE TABLE `carrito_paquete` (
+  `id_carrito` int(11) NOT NULL,
+  `id_paquete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -47,6 +71,22 @@ INSERT INTO `cliente` (`id_cliente`, `nombre`, `edad`, `correo_electronico`, `te
 (3, 'Lucía Fernández', 22, 'lucia.ferna@email.com', '2998765432', '0', 3),
 (4, 'Carlos Gómez', 40, 'carlos.gomez@email.com', '2612233445', '1', 4),
 (5, 'Ana Torres', 31, 'ana.torres@email.com', '3811122233', '1', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pago`
+--
+
+CREATE TABLE `pago` (
+  `id_pago` int(11) NOT NULL,
+  `fecha_pago` int(11) NOT NULL,
+  `metodo_pago` varchar(20) NOT NULL,
+  `monto` decimal(10,0) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_carrito` int(11) NOT NULL,
+  `id_paquete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -186,10 +226,32 @@ INSERT INTO `servicio` (`id_servicio`, `nombre_servicio`, `documentacion`, `prov
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`id_carrito`);
+
+--
+-- Indices de la tabla `carrito_paquete`
+--
+ALTER TABLE `carrito_paquete`
+  ADD KEY `carrito_paquete` (`id_carrito`),
+  ADD KEY `paquete_carrito` (`id_paquete`);
+
+--
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD PRIMARY KEY (`id_pago`),
+  ADD KEY `pago_cliente` (`id_cliente`),
+  ADD KEY `pago_carrito` (`id_carrito`),
+  ADD KEY `pago_paquete` (`id_paquete`);
 
 --
 -- Indices de la tabla `paquete`
@@ -215,10 +277,22 @@ ALTER TABLE `servicio`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `pago`
+--
+ALTER TABLE `pago`
+  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `paquete`
@@ -235,6 +309,21 @@ ALTER TABLE `servicio`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `carrito_paquete`
+--
+ALTER TABLE `carrito_paquete`
+  ADD CONSTRAINT `carrito_paquete` FOREIGN KEY (`id_carrito`) REFERENCES `carrito` (`id_carrito`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paquete_carrito` FOREIGN KEY (`id_paquete`) REFERENCES `paquete` (`id_paquete`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD CONSTRAINT `pago_carrito` FOREIGN KEY (`id_carrito`) REFERENCES `carrito` (`id_carrito`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pago_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pago_paquete` FOREIGN KEY (`id_paquete`) REFERENCES `paquete` (`id_paquete`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `paquete_servicio`
