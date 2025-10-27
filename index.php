@@ -1,6 +1,6 @@
 <?php
 require_once 'componentes/conexion.php';
-$paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;");
+$paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado=activo;");
 ?>
 
 <!DOCTYPE html>
