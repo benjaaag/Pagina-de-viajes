@@ -46,7 +46,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.disponible=1;"
             <div class="card-body text-center">
               <h5 class="card-title"><?=$paquete['nombre']?></h5>
               <p class="card-text"><?=$paquete['descripcion_corta']?></p>
-              <a href="login.php<?=$paquete['id_paquete']?>" class="btn btn-success w-100">
+              <a href="login.php?id=<?=$paquete['id_paquete']?>" class="btn btn-success w-100">
                 Comprar
               </a>
             </div>
