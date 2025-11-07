@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-11-2025 a las 17:45:08
+-- Tiempo de generación: 07-11-2025 a las 17:48:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -231,7 +231,8 @@ INSERT INTO `servicio` (`id_servicio`, `nombre_servicio`, `documentacion`, `prov
 CREATE TABLE `Usuario` (
   `id_usuario` int(11) NOT NULL,
   `nombre_usuario` varchar(11) NOT NULL,
-  `contraseña` varchar(11) NOT NULL
+  `contraseña` varchar(11) NOT NULL,
+  `Email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
