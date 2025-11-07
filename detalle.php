@@ -1,6 +1,6 @@
 <?php
 require_once 'componentes/conexion.php';
-$id_paquete = isset($GET['id']) ? intval(value: $_GET['id']) : 0;
+$id_paquete = isset($_GET['id']) ? intval(value: $_GET['id']) : 0;
 
 
 if($id_paquete != null && $id_paquete > 0) {
@@ -24,11 +24,11 @@ if($id_paquete != null && $id_paquete > 0) {
         FROM servicio JOIN paquete_servicio ON servicio.id_servicio = paquete_sevicio.id_paquete
         WHERE paquete_servicio.id_paquete = $id_paquete; "); 
     }
-    $fechaLimite =  date_create(datetime: $paquete['fecha_fin']);
+    /*$fechaLimite =  date_create(datetime: $paquete['fecha_fin']);
     $hoy = new DateTime();
     $dias_restantes = $hoy->diff(targetObject: $fechaLimite)->format(format: '%a');
 
-    $cupo_disponible = $paquete['limite_personas'] - $paquete['cupo_reservado'];
+    $cupo_disponible = $paquete['limite_personas'] - $paquete['cupo_reservado'];*/
     
 }else {
     echo "<div class='alert-danger'>ID de paquete invalido.</div>";
@@ -39,4 +39,4 @@ if($id_paquete != null && $id_paquete > 0) {
 <main class="flex-shrink-0 py-4">
     <div class="container d-flex justify-content-center">
         <div class="card text-white shadow-lg border-0 rounded-4 overflow-hidden w-100" style="max-width: 800px">
-    <h1>JAJAAJAJJ pudiste abrirlo</h1>
+    <h1> pudiste abrirlo</h1>
