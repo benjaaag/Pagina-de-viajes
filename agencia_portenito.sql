@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-11-2025 a las 20:40:33
+-- Tiempo de generación: 07-11-2025 a las 17:57:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -222,6 +222,19 @@ INSERT INTO `servicio` (`id_servicio`, `nombre_servicio`, `documentacion`, `prov
 (4, 'Transporte Privado', 'Vehículo con chofer por 8 horas', 'Autos VIP', 'Transporte', 45000),
 (5, 'Hospedaje 5 Estrellas', 'Incluye desayuno buffet', 'Hotel Imperial', 'Alojamiento', 200000);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Usuario`
+--
+
+CREATE TABLE `Usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre_usuario` varchar(11) NOT NULL,
+  `contraseña` varchar(11) NOT NULL,
+  `Email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -264,14 +277,20 @@ ALTER TABLE `paquete`
 -- Indices de la tabla `paquete_servicio`
 --
 ALTER TABLE `paquete_servicio`
-  ADD PRIMARY KEY (`id_paquete`,`id_servicio`),
-  ADD KEY `fk_servicios_paquete` (`id_servicio`);
+  ADD KEY `fk_servicios_paquete` (`id_servicio`),
+  ADD KEY `id_paquete` (`id_paquete`,`id_servicio`) USING BTREE;
 
 --
 -- Indices de la tabla `servicio`
 --
 ALTER TABLE `servicio`
   ADD PRIMARY KEY (`id_servicio`);
+
+--
+-- Indices de la tabla `Usuario`
+--
+ALTER TABLE `Usuario`
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -306,6 +325,12 @@ ALTER TABLE `paquete`
 --
 ALTER TABLE `servicio`
   MODIFY `id_servicio` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `Usuario`
+--
+ALTER TABLE `Usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
