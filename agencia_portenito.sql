@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-11-2025 a las 17:48:41
+-- Tiempo de generación: 07-11-2025 a las 17:57:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -277,8 +277,8 @@ ALTER TABLE `paquete`
 -- Indices de la tabla `paquete_servicio`
 --
 ALTER TABLE `paquete_servicio`
-  ADD PRIMARY KEY (`id_paquete`,`id_servicio`),
-  ADD KEY `fk_servicios_paquete` (`id_servicio`);
+  ADD KEY `fk_servicios_paquete` (`id_servicio`),
+  ADD KEY `id_paquete` (`id_paquete`,`id_servicio`) USING BTREE;
 
 --
 -- Indices de la tabla `servicio`
