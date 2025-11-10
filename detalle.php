@@ -123,7 +123,7 @@ if ($id_paquete > 0) {
 
             <!-- Botones -->
             <div class="d-flex justify-content-center mt-4 gap-3">
-                <a href="comprar.php?id=<?php echo $paquete['id_paquete']; ?>" class="btn btn-reserva px-5 py-2">
+                <a href="login.php?id=<?php echo $paquete['id_paquete']; ?>" class="btn btn-reserva px-5 py-2">
                     ¡RESERVÁ AHORA!
                 </a>
                 <a href="index.php" class="btn btn-volver px-5 py-2">Volver</a>

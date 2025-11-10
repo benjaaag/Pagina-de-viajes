@@ -1,6 +1,7 @@
 <?php
-session_start()
+
 require_once 'componentes/conexion.php';
+
 $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activo'; ")
 ?>
 
@@ -33,6 +34,8 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="#quienes">Quiénes somos</a></li>
           <li class="nav-item"><a class="nav-link text-success fw-bold" href="carrito.php">Carrito</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.php">Iniciar Sesion</a></li>
+          
         </ul>
       </div>
     </div>

@@ -35,32 +35,17 @@ if (isset($_POST['usuario']) && isset($_POST['password'])) {
 
 <div class="container py-5">
     <div class="w-50 mx-auto bg-white p-4 shadow rounded">
-        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <h2  class="text-center mb-4">Iniciar Sesión</h2>
+    
 
         <?php if(isset($error)): ?>
         <div class="alert alert-danger text-center"><?= $error ?></div>
         <?php endif; ?>
 
         <form method="POST" action="login.php">
-            <div class="mb-3">
-                <label class="form-label">Usuario</label>
-                <input type="email" name="usuario" id="usuario" class="form-control" required placeholder="Ej: cliente">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input type="password" name="contrasenia" id="contrasenia" class="form-control" required placeholder="Ej: 1234">
-            </div>
-
-            <button class="btn btn-success w-100 mb-3">Iniciar Sesión</button>
-
-            <a href="index.php" class="btn btn-secondary w-100 mb-3">Volver al Inicio</a>
-
-            <hr>
-
-            <p class="text-center">¿No tenés una cuenta?</p>
-            <a href="registro.php" class="btn btn-primary w-100">Registrarse</a>
+            
         </form>
+        <?php require_once 'componentes/comp-form-login.php' ?>
     </div>
 </div>
 
