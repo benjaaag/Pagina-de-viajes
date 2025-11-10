@@ -1,4 +1,5 @@
 <?php
+session_start()
 require_once 'componentes/conexion.php';
 $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activo'; ")
 ?>

@@ -1,6 +1,13 @@
 <?php
 session_start();
-
+require_once 'componentes/conexion.php';
+if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
+    $errores = '';
+    $correo = $conexion->real_escape_string(string: $_POST['usuario']);
+    $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
+}
+    
+    /*Cuando se aprieta iniciar sesion, se limpian los campos donde pusiste los datos */
 // Simulación de login simple
 if (isset($_POST['usuario']) && isset($_POST['password'])) {
     $usuario = $_POST['usuario'];
@@ -34,15 +41,15 @@ if (isset($_POST['usuario']) && isset($_POST['password'])) {
         <div class="alert alert-danger text-center"><?= $error ?></div>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" action="login.php">
             <div class="mb-3">
                 <label class="form-label">Usuario</label>
-                <input type="text" name="usuario" class="form-control" required placeholder="Ej: cliente">
+                <input type="email" name="usuario" id="usuario" class="form-control" required placeholder="Ej: cliente">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Contraseña</label>
-                <input type="password" name="password" class="form-control" required placeholder="Ej: 1234">
+                <input type="password" name="contrasenia" id="contrasenia" class="form-control" required placeholder="Ej: 1234">
             </div>
 
             <button class="btn btn-success w-100 mb-3">Iniciar Sesión</button>
