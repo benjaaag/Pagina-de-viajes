@@ -1,27 +1,23 @@
 <?php
+require_once 'componentes/conexion.php';
+
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
         $errores = '';
     $correo = $conexion->real_escape_string(string: $_POST['usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
     }
 
- /*Cuando se aprieta iniciar sesion, se limpian los campos donde pusiste los datos */
-// Simulación de login simple
-if (isset($_POST['usuario']) && isset($_POST['password'])) {
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
+if (empty($correo)  || empty($contrasenia)) {
+    $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos.";
+} else {
+    $query = $conexion->prepare(query: 'SELECT * FROM usuario WHERE email = ?');
+    $query->bind_param('s',$correo);
+    $query->execute();
 
-    // Usuario de ejemplo
-    if ($usuario == "cliente" && $password == "1234") {
-        $_SESSION['usuario'] = $usuario;
-        header("Location: carrito.php"); 
-        exit;
-    } else {
-        $error = "Usuario o contraseña incorrectos";
+    if ($query->get_result()->num_rows > 0){
+        $errores .= "<div class='alert alert-danger'>El correo ya esta registrado.";
     }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

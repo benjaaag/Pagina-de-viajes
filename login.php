@@ -1,25 +1,40 @@
 <?php
-session_start();
+
 require_once 'componentes/conexion.php';
-if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
+
+if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])) {
     $errores = '';
     $correo = $conexion->real_escape_string(string: $_POST['usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
 }
     
-    /*Cuando se aprieta iniciar sesion, se limpian los campos donde pusiste los datos */
-// Simulación de login simple
-if (isset($_POST['usuario']) && isset($_POST['password'])) {
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
+    if (empty($correo)  || empty($contrasenia)){
+        $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos";
 
-    // Usuario de ejemplo
-    if ($usuario == "cliente" && $password == "1234") {
-        $_SESSION['usuario'] = $usuario;
-        header("Location: carrito.php"); 
-        exit;
     } else {
-        $error = "Usuario o contraseña incorrectos";
+        $frase = $conexion->prepare("SELECT * FROM Usuario WHERE Usuario.Email =?");
+        $frase->bind_param('s',$correo);
+        $frase->execute();
+
+
+
+        $usuario = $frase->get_result()->fetch_assoc();
+
+        if ($usuario){
+
+            if  (password_verify($contrasenia,$usuario['contrasenia'])) {
+                session_start();
+                $_SESSION["id_usuario"] = $usuario['id_usuario'];
+                $_SESSION['rol'] = $usuario ['rol'];
+                $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
+
+                $conexion->close();
+
+                header('Location: index.php');
+                exit;
+            } else {
+                $errores .= "<div class='alert alert-danger'>Correo o contraseña incorrectos.</div>";
+        }
     }
 }
 ?>
@@ -43,11 +58,11 @@ if (isset($_POST['usuario']) && isset($_POST['password'])) {
         <?php endif; ?>
 
         <form method="POST" action="login.php">
-            
+            <?php require_once 'componentes/comp/form-login.php'; ?>
         </form>
-        <?php require_once 'componentes/comp-form-login.php' ?>
+        
     </div>
 </div>
-
+        
 </body>
 </html>
