@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
     if (empty($correo)  || empty($contrasenia)) {
         $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos.";
     } else {
-        $query = $conexion->prepare(query: 'SELECT * FROM Usuario WHERE Email = ?');
+        $query = $conexion->prepare(query: 'SELECT * FROM Usuario WHERE nombre_usuario = ?');
         $query->bind_param('s',$correo);
         $query->execute();
 
@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
             $contra_hash = password_hash(password: $contrasenia, algo:PASSWORD_BCRYPT);
 
             $query= $conexion->prepare(query: 'INSERT INTO Usuario (nombre_usuario, contrasenia) VALUES (?, ?)');
-            $query ->bind_param(types: 'ss', var: $correo, vars: $contra_hash);
+            $query ->bind_param('ss', $correo, $contra_hash);
             $sentencia = $query->execute();
 
             $query->close();
