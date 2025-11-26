@@ -62,6 +62,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
       <?php
           if ($_SESSION['userid']) {
             echo 'Hola ' . $_SESSION['nombre_usuario'];
+            echo 'a href="logout.php">CIERRRE DE SESION</a>';
           } else {
              echo '<a href="login.php">INICIO DE SESIÓN</a>';
           }
