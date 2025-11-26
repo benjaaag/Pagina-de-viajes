@@ -18,6 +18,25 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
             $errores .= "<div class='alert alert-danger'>El correo ya esta registrado.";
         }
     }
+    
+        if(empty($errores)){
+            $contra_hash = password_hash(password: $contrasenia, algo:PASSWORD_BCRYPT);
+
+            $query= $conexion->prepare(query: 'INSERT INTO Usuario (Email, contrasenia) VALUES (?, ?)');
+            $query ->bind_param(types: 'ss', var: $correo, vars: $contra_hash);
+            $sentencia = $query->execute();
+
+            $query->close();
+            $conexion->close();
+            if($sentencia){
+                $success= "<div class='alert alert-success'>Registro existoso. Por favor, inicia sesión.</div>";
+                header(header: 'Location: index.php');
+            } else {
+                $errores= "<div class='alert alert-danger'>Error en BBDD, pruebe más tarde.</div>";
+            }
+
+    }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +46,6 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
     <title>Pagina De viajes - LOGIN</title>
 </head>
 <body>
-    <h1><form action=""></form></h1>
+    <h1>asdasd<form action=""></form></h1>
 </body>
 </html>
