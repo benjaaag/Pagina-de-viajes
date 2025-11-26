@@ -27,6 +27,6 @@ if (empty($correo)  || empty($contrasenia)) {
     <title>Pagina De viajes - LOGIN</title>
 </head>
 <body>
-    
+    <h1><form action=""></form></h1>
 </body>
 </html>

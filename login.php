@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])) {
         <?php endif; ?>
 
         <form method="POST" action="login.php">
-            <?php require_once 'componentes/comp/form-login.php'; ?>
+            <?php require_once 'componentes/comp-form-login.php'; ?>
         </form>
         
     </div>

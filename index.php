@@ -59,6 +59,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
       <?php } ?>
     </div>
   </div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
