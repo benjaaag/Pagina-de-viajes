@@ -10,11 +10,11 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
     if (empty($correo)  || empty($contrasenia)) {
         $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos.";
     } else {
-        $query = $conexion->prepare(query: 'SELECT * FROM usuario WHERE email = ?');
+        $query = $conexion->prepare(query: 'SELECT * FROM Usuario WHERE Email = ?');
         $query->bind_param('s',$correo);
         $query->execute();
 
-        if ($query->get_result()->num_rows > 0){
+        if ($query->get_result()->num_rows > 1){
             $errores .= "<div class='alert alert-danger'>El correo ya esta registrado.";
         }
     }
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
         if(empty($errores)){
             $contra_hash = password_hash(password: $contrasenia, algo:PASSWORD_BCRYPT);
 
-            $query= $conexion->prepare(query: 'INSERT INTO Usuario (Email, contrasenia) VALUES (?, ?)');
+            $query= $conexion->prepare(query: 'INSERT INTO Usuario (nombre_usuario, contrasenia) VALUES (?, ?)');
             $query ->bind_param(types: 'ss', var: $correo, vars: $contra_hash);
             $sentencia = $query->execute();
 
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
 </head>
 <body>
     <form method="POST" action="registro.php">
-        <?php require_once 'componentes/comp-form-login.php';?>
+       <?php require_once 'componentes/comp-form-registro.php';?>
     </form>
     
 </body>

@@ -4,7 +4,7 @@ require_once 'componentes/conexion.php';
 
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])) {
     $errores = '';
-    $correo = $conexion->real_escape_string(string: $_POST['usuario']);
+    $correo = $conexion->real_escape_string(string: $_POST['nombre_usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
 }
     
@@ -20,13 +20,13 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])) {
 
         $usuario = $frase->get_result()->fetch_assoc();
 
-        if ($usuario){
+        if ($Usuario){
 
-            if  (password_verify($contrasenia,$usuario['contrasenia'])) {
+            if  (password_verify($contrasenia,$nombre_usuario['contrasenia'])) {
                 session_start();
-                $_SESSION["id_usuario"] = $usuario['id_usuario'];
-                $_SESSION['rol'] = $usuario ['rol'];
-                $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
+                $_SESSION["id_usuario"] = $Usuario['id_usuario'];
+                $_SESSION['rol'] = $Usuario ['rol'];
+                $_SESSION['nombre_usuario'] = $Usuario['nombre_usuario'];
 
                 $conexion->close();
 
