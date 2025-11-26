@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-11-2025 a las 18:12:07
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Tiempo de generación: 26-11-2025 a las 15:13:38
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -231,9 +231,9 @@ INSERT INTO `servicio` (`id_servicio`, `nombre_servicio`, `documentacion`, `prov
 CREATE TABLE `Usuario` (
   `id_usuario` int(11) NOT NULL,
   `nombre_usuario` varchar(11) NOT NULL,
-  `contrasenia` varchar(255) NOT NULL,
-  `Email` varchar(150) NOT NULL,
-  `rol` varchar(11) NOT NULL
+  `contrasenia` varchar(11) NOT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `rol` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

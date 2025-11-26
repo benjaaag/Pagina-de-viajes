@@ -1,6 +1,6 @@
 <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" name="usuario" id="usuario" class="form-control" required placeholder="Ej: cliente">
+                <input type="Email" name="usuario" id="usuario" class="form-control" required placeholder="Ej: cliente">
             </div>
 
             <div class="mb-3">
