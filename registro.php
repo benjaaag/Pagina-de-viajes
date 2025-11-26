@@ -46,6 +46,11 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
     <title>Pagina De viajes - LOGIN</title>
 </head>
 <body>
-    <h1>asdasd<form action=""></form></h1>
+    <form method="POST" action="registro.php">
+        <?php require_once 'componentes/comp-form-login.php';?>
+    </form>
+    <div>
+        <p>¿No tienes usuario? Registrate: <a href="registro.php">aquí</a></p>
+    </div>
 </body>
 </html>
