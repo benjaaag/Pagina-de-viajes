@@ -3,7 +3,7 @@ require_once 'componentes/conexion.php';
 
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
         $errores = '';
-    $correo = $conexion->real_escape_string(string: $_POST['usuario']);
+    $correo = $conexion->real_escape_string(string: $_POST['nombre_usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
     }
 
