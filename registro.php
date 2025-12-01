@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once 'componentes/conexion.php';
 
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
-        $errores = '';
+    $errores = '';
     $correo = $conexion->real_escape_string(string: $_POST['nombre_usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
     }
@@ -28,6 +29,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
 
         $query->close();
         $conexion->close();
+
         if($sentencia){
             $success= "<div class='alert alert-success'>Registro existoso. Por favor, inicia sesión.</div>";
             header(header: 'Location: index.php');

@@ -1,5 +1,5 @@
 <div class="mb-3">
-                <label class="form-label">nombre_usuario</label>
+                <label class="form-label">Nombre de usuario</label>
                 <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" required placeholder="Ej: cliente">
             </div>
 
