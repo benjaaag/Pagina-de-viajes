@@ -19,21 +19,21 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])){
         }
     }
     
-        if(empty($errores)){
-            $contra_hash = password_hash( $contrasenia, PASSWORD_BCRYPT);
+    if(empty($errores)){
+        $contra_hash = password_hash( $contrasenia, PASSWORD_BCRYPT);
 
-            $query= $conexion->prepare(query: 'INSERT INTO Usuario (nombre_usuario, contrasenia) VALUES (?, ?)');
-            $query ->bind_param('ss', $correo, $contra_hash);
-            $sentencia = $query->execute();
+        $query= $conexion->prepare(query: 'INSERT INTO Usuario (nombre_usuario, contrasenia) VALUES (?, ?)');
+        $query ->bind_param('ss', $correo, $contra_hash);
+        $sentencia = $query->execute();
 
-            $query->close();
-            $conexion->close();
-            if($sentencia){
-                $success= "<div class='alert alert-success'>Registro existoso. Por favor, inicia sesión.</div>";
-                header(header: 'Location: index.php');
-            } else {
-                $errores= "<div class='alert alert-danger'>Error en BBDD, pruebe más tarde.</div>";
-            }
+        $query->close();
+        $conexion->close();
+        if($sentencia){
+            $success= "<div class='alert alert-success'>Registro existoso. Por favor, inicia sesión.</div>";
+            header(header: 'Location: index.php');
+        } else {
+            $errores= "<div class='alert alert-danger'>Error en BBDD, pruebe más tarde.</div>";
+        }
 
     }
   
