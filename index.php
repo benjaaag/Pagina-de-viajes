@@ -2,7 +2,7 @@
 session_start();
 require_once 'componentes/conexion.php';
 
-$paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activo'; ")
+$paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado = 'Activo';");
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
@@ -34,7 +35,23 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="#quienes">Quiénes somos</a></li>
           <li class="nav-item"><a class="nav-link text-success fw-bold" href="carrito.php">Carrito</a></li>
-          <li class="nav-item"><a class="nav-link active" href="login.php">Iniciar Sesion</a></li>
+
+          <!-- AQUI CAMBIA SEGÚN SI ESTÁ LOGUEADO -->
+          <?php if (isset($_SESSION['id_usuario'])): ?>
+              <li class="nav-item">
+                <span class="nav-link text-success fw-bold">
+                  Hola, <?php echo $_SESSION['nombre_usuario']; ?>
+                </span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-danger fw-bold" href="logout.php">Cerrar sesión</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link active text-success fw-bold" href="login.php">Iniciar sesión</a>
+              </li>
+          <?php endif; ?>
+          <!-- FIN CAMBIO -->
           
         </ul>
       </div>
@@ -43,14 +60,14 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
 
   <div class="container py-5" id="paquetes">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <?php foreach($paquetes as $paquete) { ?>
+      <?php foreach ($paquetes as $paquete) { ?>
         <div class="col">
           <div class="card h-100 shadow-sm">
-            <img src="imagen/<?=$paquete['Imagen']?>" class="card-img-top" alt="<?=$paquete['nombre']?>">
+            <img src="imagen/<?= $paquete['Imagen'] ?>" class="card-img-top" alt="<?= $paquete['nombre'] ?>">
             <div class="card-body text-center">
-              <h5 class="card-title"><?=$paquete['nombre']?></h5>
-              <p class="card-text"><?=$paquete['descripcion_corta']?></p>
-              <a href="detalle.php?id=<?=$paquete['id_paquete']?>" class="btn btn-success w-100">
+              <h5 class="card-title"><?= $paquete['nombre'] ?></h5>
+              <p class="card-text"><?= $paquete['descripcion_corta'] ?></p>
+              <a href="detalle.php?id=<?= $paquete['id_paquete'] ?>" class="btn btn-success w-100">
                 Comprar
               </a>
             </div>
@@ -59,15 +76,7 @@ $paquetes = $conexion->query("SELECT * FROM paquete WHERE paquete.estado= 'Activ
       <?php } ?>
     </div>
   </div>
-      <?php
-      echo $_SESSION['id_usuario'];
-          if ($_SESSION['id_usuario']) {
-            echo 'Hola ' . $_SESSION['nombre_usuario'];
-            echo 'a href="logout.php">CIERRRE DE SESION</a>';
-          } else {
-             echo '<a href="login.php">INICIO DE SESIÓN</a>';
-          }
-      ?>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

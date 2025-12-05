@@ -6,35 +6,35 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['ingresar'])) {
     $errores = '';
     $correo = $conexion->real_escape_string(string: $_POST['nombre_usuario']);
     $contrasenia = $conexion->real_escape_string(string: $_POST['contrasenia']);
-}
-    
-if (empty($correo)  || empty($contrasenia)){
-    $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos";
-
-} else {
-    $frase = $conexion->prepare("SELECT * FROM Usuario WHERE Usuario.nombre_usuario = ?");
-    $frase->bind_param('s',$correo);
-    $frase->execute();
-    
-    
-    $Usuario = $frase->get_result()->fetch_assoc();
-
-if ($Usuario){
-
-    if  (password_verify($contrasenia, $Usuario['contrasenia'])) {
-        session_start();
-        $_SESSION["id_usuario"] = $Usuario['id_usuario'];
-        $_SESSION['rol'] = $Usuario ['rol'];
-        $_SESSION['nombre_usuario'] = $Usuario['nombre_usuario'];
-
-        $conexion->close();
-
-        header('Location: index.php');
-        exit;
-        } else {
-            $errores .= "<div class='alert alert-danger'>Correo o contraseña incorrectos.</div>";
-        }
     }
+    
+    if (empty($correo)  || empty($contrasenia)){
+        $errores .= "<div class='alert alert-danger'>por favor, completa todos los campos";
+
+    } else {
+        $frase = $conexion->prepare("SELECT * FROM Usuario WHERE Usuario.nombre_usuario = ?");
+        $frase->bind_param('s',$correo);
+        $frase->execute();
+    
+    
+        $Usuario = $frase->get_result()->fetch_assoc();
+
+    if ($Usuario){
+
+        if  (password_verify($contrasenia, $Usuario['contrasenia'])) {
+            session_start();
+            $_SESSION["id_usuario"] = $Usuario['id_usuario'];
+            $_SESSION['rol'] = $Usuario ['rol'];
+            $_SESSION['nombre_usuario'] = $Usuario['nombre_usuario'];
+
+            $conexion->close();
+
+            header('Location: index.php');
+            exit;
+            } else {
+                $errores .= "<div class='alert alert-danger'>Correo o contraseña incorrectos.</div>";
+            }
+            }
 }
 ?>
 <!DOCTYPE html>
