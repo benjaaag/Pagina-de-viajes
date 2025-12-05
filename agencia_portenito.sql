@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-11-2025 a las 15:13:38
+-- Tiempo de generación: 05-12-2025 a las 18:28:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -230,11 +230,22 @@ INSERT INTO `servicio` (`id_servicio`, `nombre_servicio`, `documentacion`, `prov
 
 CREATE TABLE `Usuario` (
   `id_usuario` int(11) NOT NULL,
-  `nombre_usuario` varchar(11) NOT NULL,
-  `contrasenia` varchar(11) NOT NULL,
+  `nombre_usuario` varchar(255) NOT NULL,
+  `contrasenia` varchar(255) NOT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `rol` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `Usuario`
+--
+
+INSERT INTO `Usuario` (`id_usuario`, `nombre_usuario`, `contrasenia`, `Email`, `rol`) VALUES
+(1, 'matias', '$2y$10$drWK9FzBs/CELUY9HF1Elu.uwAJ.d67KD4L394/R/wzYi2p32fK1C', NULL, NULL),
+(2, 'maticuo', '$2y$10$Ozknt71vku1JIl6T.TEqm.LSTg6OukphZK0nhz0VXXGld2SgA1YOS', NULL, NULL),
+(3, 'maticuo2', '$2y$10$BBmVCkLgqsGBf62fNvwquudhCO0N3td8i2fAvhDkKFvLFQfL38VTG', NULL, NULL),
+(4, 'saru2', '$2y$10$giAtXJnF8ZfEKyNxx5wW4OaIld.Ev8lVPA6Fp5xP8UIMmsa0n4k3i', NULL, NULL),
+(5, 'aaa', '$2y$10$cSnWE6WTemo7vZ6erzgAn.OQvpm1m.JgaClAlNUCi1jcNUOhIHe/S', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -331,7 +342,7 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `Usuario`
 --
 ALTER TABLE `Usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
