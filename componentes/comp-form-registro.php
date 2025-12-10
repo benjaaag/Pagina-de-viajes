@@ -9,7 +9,7 @@
             </div>
 
     
-            <input class="btn btn-success w-100 mb-3" type="submit" value="registrarse" name="ingresar" id="ingresar">
+            <input class="btn btn-success w-100 mb-3" type="submit" value="Registrarse" name="ingresar" id="ingresar">
 
             <a href="index.php" class="btn btn-secondary w-100 mb-3">Volver al Inicio</a>
 

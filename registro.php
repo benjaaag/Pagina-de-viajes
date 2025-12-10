@@ -70,7 +70,7 @@ $conexion->close();
 
         <form method="POST" action="registro.php">
             <?php require_once 'componentes/comp-form-registro.php'; ?>
-            <button type="submit" name="ingresar" class="btn btn-primary w-100 mt-3">Registrarse</button>
+          
         </form>
     </div>
 </div>
